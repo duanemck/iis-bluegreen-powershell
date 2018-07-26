@@ -1,6 +1,7 @@
 $ErrorActionPreference = "Stop"
 # Get the server farm object based on the name and optional server configuration file
 function Get-ServerFarm([string]$serverFarmName, [string]$applicationHostConfig = $("$env:systemroot\system32\inetsrv\config\applicationhost.config")) {
+    [System.Reflection.Assembly]::LoadFrom("$env:systemroot\system32\inetsrv\Microsoft.Web.Administration.dll")
     $mgr = new-object Microsoft.Web.Administration.ServerManager $applicationHostConfig
     $conf = $mgr.GetApplicationHostConfiguration()
     $section = $conf.GetSection("webFarms")
