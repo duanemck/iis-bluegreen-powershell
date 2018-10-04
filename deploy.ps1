@@ -11,7 +11,7 @@ param (
 )
 
 Import-Module -Force "$PSScriptRoot\lib\server-farm.psm1"
-Import-Module -Force "$PSScriptRoot\lib\util.psm1"
+Import-Module -Force "$PSScriptRoot\lib\remote-execution.psm1"
 
 $credential = Get-ServerCredentials $username $password
 $remoteMachines = $machines -split ","
